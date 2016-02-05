@@ -70,4 +70,20 @@ describe 'Array' do
       arr.wsample { |v| v }.must_equal(100 ** 100)
     end
   end
+
+  describe 'explicit random generator' do
+    let(:arr) { [1, 2, 3, 4, 5] }
+
+    it 'wshuffle should be same' do
+      result1 = arr.wshuffle(random: Random.new(3)) { |v| v }
+      result2 = arr.wshuffle(random: Random.new(3)) { |v| v }
+      result1.must_equal(result2)
+    end
+
+    it 'wsample should be same' do
+      result1 = arr.wsample(random: Random.new(4)) { |v| v }
+      result2 = arr.wsample(random: Random.new(4)) { |v| v }
+      result1.must_equal(result2)
+    end
+  end
 end

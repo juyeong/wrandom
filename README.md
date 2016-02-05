@@ -8,6 +8,17 @@ gem install wrandom
 
 ## Usage
 ```ruby
+# wsample => obj
+# wsample(random: rng) => obj
+# wsample(n) => new_ary
+# wsample(n, random: rng) => new_ary
+
+# wshuffle => new_ary
+# wshuffle(random: rng) => new_ary
+
+# wshuffle! => ary
+# wshuffle!(random: rng) => ary
+
 arr = [1, 2, 3]
 
 # Choose a weighted random element from the array.
@@ -15,6 +26,9 @@ arr.wsample { |v| v * 10 }  #=> 3
 
 # Choose n weighted random elements from the array.
 arr.wsample(2) { |v| v * 10 }  #=> [3, 2]
+
+# Choose n weighted random elements from the array.
+arr.wsample(2, random: Random.new) { |v| v * 10 }  #=> [3, 2]
 
 # Returns a new array with shuffled by weight.
 arr.wshuffle { |v| v * 10 }  #=> [3, 2, 1]
