@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/juyeong/wrandom.svg?branch=master)](https://travis-ci.org/juyeong/wrandom)
 # wrandom
 Ruby weighted random
 
