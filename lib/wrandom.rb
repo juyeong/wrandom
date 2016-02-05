@@ -6,8 +6,8 @@ class Array
       else
         [args[0], args[1]]
       end
-    ret = max_by(count || 1) { |v| w_algorithm(v, options, &block) }
-    count ? ret : ret[0]
+    arr = wshuffle(options, &block)
+    count ? arr.first(count) : arr.first
   end
 
   def wshuffle(options = {}, &block)
