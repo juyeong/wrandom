@@ -5,11 +5,11 @@ class Array
   end
 
   def wshuffle(&block)
-    sort_by { |v| w_algorithm(v, &block) }
+    sort_by { |v| w_algorithm(v, &block) }.reverse!
   end
 
   def wshuffle!(&block)
-    sort_by! { |v| w_algorithm(v, &block) }
+    sort_by! { |v| w_algorithm(v, &block) }.reverse!
   end
 
   private

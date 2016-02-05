@@ -53,4 +53,21 @@ describe 'Array' do
       arr.wshuffle! { |v| v }.object_id.must_equal(arr.object_id)
     end
   end
+
+  describe 'should be shuffled by weight' do
+    let(:arr) { [1, 100 ** 100] }
+
+    it 'wshuffle should shuffle by weight' do
+      arr.wshuffle { |v| v }.first.must_equal(100 ** 100)
+    end
+
+    it 'wshuffle! should shuffle by weight' do
+      arr.wshuffle! { |v| v }
+      arr.first.must_equal(100 ** 100)
+    end
+
+    it 'wsample should select by weight' do
+      arr.wsample { |v| v }.must_equal(100 ** 100)
+    end
+  end
 end
