@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/juyeong/wrandom.svg?branch=master)](https://travis-ci.org/juyeong/wrandom)
+[![Code Climate](https://codeclimate.com/github/juyeong/wrandom/badges/gpa.svg)](https://codeclimate.com/github/juyeong/wrandom)
 # wrandom
 Ruby weighted random
 
