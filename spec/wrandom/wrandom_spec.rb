@@ -69,6 +69,10 @@ describe 'Array' do
     it 'wsample should select by weight' do
       arr.wsample { |v| v }.must_equal(100 ** 100)
     end
+
+    it 'wsample(1) should select by weight' do
+      arr.wsample(1) { |v| v }.must_equal([100 ** 100])
+    end
   end
 
   describe 'explicit random generator' do
@@ -83,6 +87,12 @@ describe 'Array' do
     it 'wsample should be same' do
       result1 = arr.wsample(random: Random.new(4)) { |v| v }
       result2 = arr.wsample(random: Random.new(4)) { |v| v }
+      result1.must_equal(result2)
+    end
+
+    it 'wsample(1) should be same' do
+      result1 = arr.wsample(1, random: Random.new(5)) { |v| v }
+      result2 = arr.wsample(1, random: Random.new(5)) { |v| v }
       result1.must_equal(result2)
     end
   end

@@ -6,8 +6,12 @@ class Array
       else
         [args[0], args[1]]
       end
-    arr = wshuffle(options, &block)
-    count ? arr.first(count) : arr.first
+
+    if count
+      wshuffle(options, &block).first(count)
+    else
+      max_by { |v| w_algorithm(v, options, &block) }
+    end
   end
 
   def wshuffle(options = {}, &block)
