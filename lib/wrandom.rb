@@ -1,5 +1,7 @@
 class Array
   def wsample(*args, &block)
+    return to_enum(:wsample, *args) unless block
+
     count, options = \
       if args.size == 0 || args[0].class == Hash
         [nil, args[0]]
@@ -15,10 +17,14 @@ class Array
   end
 
   def wshuffle(options = {}, &block)
+    return to_enum(:wshuffle, options) unless block
+
     sort_by { |v| w_algorithm(v, options, &block) }.reverse!
   end
 
   def wshuffle!(options = {}, &block)
+    return to_enum(:wshuffle!, options) unless block
+
     sort_by! { |v| w_algorithm(v, options, &block) }.reverse!
   end
 
